@@ -14,7 +14,7 @@ Port of the embedded Rust level indicator to C++ using STM32 HAL, demonstrating 
 
 ## Project Structure
 
-```
+```text
 cpp/
 ├── CMakeLists.txt              # Build configuration
 ├── STM32F407VGTx_FLASH.ld      # Linker script
