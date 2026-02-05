@@ -6,9 +6,8 @@ use libm::atan2f;
 /// 0.05g ~ 3.5 degrees tilt
 const LEVEL_THRESHOLD_G: f32 = 0.05;
 
-/// Maximum tilt angle for full LED dimming (in g-force).
-/// 0.50g ~ 30 degrees tilt
-const MAX_TILT: f32 = 30.0;
+/// Maximum tilt angle for full LED dimming
+const MAX_TILT: f32 = 15.0;
 
 /// Exponential moving average smoothing factor.
 /// 0.15 provides stronger smoothing to reduce flashing from vibrations.

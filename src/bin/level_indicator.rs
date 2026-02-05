@@ -77,6 +77,7 @@ fn main() -> ! {
     // Create level detector
     let mut level_detector = LevelDetector::new();
 
+    defmt::println!("Starting level indicator...");
     // Main loop
     loop {
         // Read accelerometer
