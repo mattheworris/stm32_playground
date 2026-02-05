@@ -60,8 +60,6 @@ Archive member included to satisfy reference by file (symbol)
                               /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o) (_write_r)
 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
                               /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-stdio.o) (_close_r)
-/Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
-                              CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj (__aeabi_f2d)
 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
                               CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj (__aeabi_uldivmod)
 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
@@ -660,6 +658,8 @@ Discarded input sections
  .bss           0x00000000        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .text.HAL_GPIO_DeInit
                 0x00000000      0x11c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .text.HAL_GPIO_ReadPin
+                0x00000000        0xc CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .text.HAL_GPIO_TogglePin
                 0x00000000       0x12 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .text.HAL_GPIO_LockPin
@@ -1157,16 +1157,12 @@ Discarded input sections
                 0x00000000       0x58 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.SPI_AbortTx_ISR
                 0x00000000       0x1a CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .text.SPI_EndRxTransaction
-                0x00000000       0x58 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.HAL_SPI_MspInit
                 0x00000000        0x2 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.HAL_SPI_MspDeInit
                 0x00000000        0x2 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.HAL_SPI_DeInit
                 0x00000000       0x2c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .text.HAL_SPI_Receive
-                0x00000000      0x13c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.HAL_SPI_Transmit_IT
                 0x00000000       0x8c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.HAL_SPI_TransmitReceive_IT
@@ -2125,8 +2121,6 @@ Discarded input sections
  .debug_frame   0x00000000       0x2c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
  .ARM.attributes
                 0x00000000       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-closer.o)
- .data          0x00000000        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .bss           0x00000000        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
  .data          0x00000000        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .bss           0x00000000        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .text          0x00000000        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
@@ -2345,501 +2339,490 @@ LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-
                 0x08000000                g_pfnVectors
                 0x08000188                        . = ALIGN (0x4)
 
-.text           0x08000188     0x3114
+.text           0x08000188     0x2ec0
                 0x08000188                        . = ALIGN (0x4)
  *(.text)
- .text          0x08000188      0x378 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
-                0x08000188                __aeabi_drsub
-                0x08000190                __subdf3
-                0x08000190                __aeabi_dsub
-                0x08000194                __aeabi_dadd
-                0x08000194                __adddf3
-                0x0800040c                __aeabi_ui2d
-                0x0800040c                __floatunsidf
-                0x0800042c                __floatsidf
-                0x0800042c                __aeabi_i2d
-                0x08000450                __extendsfdf2
-                0x08000450                __aeabi_f2d
-                0x08000494                __aeabi_ul2d
-                0x08000494                __floatundidf
-                0x080004a4                __aeabi_l2d
-                0x080004a4                __floatdidf
- .text          0x08000500       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
-                0x08000500                __aeabi_uldivmod
- .text          0x08000530        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
-                0x08000530                __aeabi_ldiv0
-                0x08000530                __aeabi_idiv0
+ .text          0x08000188       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x08000188                __aeabi_uldivmod
+ .text          0x080001b8        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+                0x080001b8                __aeabi_ldiv0
+                0x080001b8                __aeabi_idiv0
  *(.text*)
  .text.deregister_tm_clones
-                0x08000534       0x1c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080001bc       0x1c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .text.register_tm_clones
-                0x08000550       0x24 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080001d8       0x24 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .text.__do_global_dtors_aux
-                0x08000574       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080001fc       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .text.frame_dummy
-                0x0800059c       0x24 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x08000224       0x24 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .text._ZN13AccelerometerC2EP19__SPI_HandleTypeDefP12GPIO_TypeDeft
-                0x080005c0        0x8 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x080005c0                Accelerometer::Accelerometer(__SPI_HandleTypeDef*, GPIO_TypeDef*, unsigned short)
-                0x080005c0                Accelerometer::Accelerometer(__SPI_HandleTypeDef*, GPIO_TypeDef*, unsigned short)
+                0x08000248        0x8 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x08000248                Accelerometer::Accelerometer(__SPI_HandleTypeDef*, GPIO_TypeDef*, unsigned short)
+                0x08000248                Accelerometer::Accelerometer(__SPI_HandleTypeDef*, GPIO_TypeDef*, unsigned short)
  .text._ZN13Accelerometer13chipSelectLowEv
-                0x080005c8        0xa CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x080005c8                Accelerometer::chipSelectLow()
+                0x08000250        0xa CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x08000250                Accelerometer::chipSelectLow()
  .text._ZN13Accelerometer14chipSelectHighEv
-                0x080005d2        0xa CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x080005d2                Accelerometer::chipSelectHigh()
+                0x0800025a        0xa CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x0800025a                Accelerometer::chipSelectHigh()
  .text._ZN13Accelerometer12readRegisterEhPh
-                0x080005dc       0xdc CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x080005dc                Accelerometer::readRegister(unsigned char, unsigned char*)
+                0x08000264       0x88 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x08000264                Accelerometer::readRegister(unsigned char, unsigned char*)
  .text._ZN13Accelerometer13writeRegisterEhh
-                0x080006b8       0x2e CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x080006b8                Accelerometer::writeRegister(unsigned char, unsigned char)
- *fill*         0x080006e6        0x2 
+                0x080002ec       0x2e CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x080002ec                Accelerometer::writeRegister(unsigned char, unsigned char)
+ *fill*         0x0800031a        0x2 
  .text._ZN13Accelerometer4initEv
-                0x080006e8      0x1ac CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x080006e8                Accelerometer::init()
+                0x0800031c      0x154 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x0800031c                Accelerometer::init()
  .text._ZN13Accelerometer11readRawDataERsS0_S0_
-                0x08000894       0x64 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x08000894                Accelerometer::readRawData(short&, short&, short&)
+                0x08000470       0xb0 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x08000470                Accelerometer::readRawData(short&, short&, short&)
  .text._ZN13Accelerometer6readXYERfS0_
-                0x080008f8       0x4c CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                0x080008f8                Accelerometer::readXY(float&, float&)
+                0x08000520       0x4c CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x08000520                Accelerometer::readXY(float&, float&)
  .text._ZN13LedControllerC2EP17TIM_HandleTypeDef
-                0x08000944        0x8 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
-                0x08000944                LedController::LedController(TIM_HandleTypeDef*)
-                0x08000944                LedController::LedController(TIM_HandleTypeDef*)
+                0x0800056c        0x8 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+                0x0800056c                LedController::LedController(TIM_HandleTypeDef*)
+                0x0800056c                LedController::LedController(TIM_HandleTypeDef*)
  .text._ZN13LedController13setBrightnessEhhhh
-                0x0800094c       0x30 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
-                0x0800094c                LedController::setBrightness(unsigned char, unsigned char, unsigned char, unsigned char)
+                0x08000574       0x30 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+                0x08000574                LedController::setBrightness(unsigned char, unsigned char, unsigned char, unsigned char)
  .text._ZN13LedController6allOffEv
-                0x0800097c       0x12 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
-                0x0800097c                LedController::allOff()
+                0x080005a4       0x12 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+                0x080005a4                LedController::allOff()
  .text._ZN13LedController4initEv
-                0x0800098e       0x34 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
-                0x0800098e                LedController::init()
+                0x080005b6       0x34 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+                0x080005b6                LedController::init()
  .text._ZN14LevelAlgorithmC2Ev
-                0x080009c2        0x8 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
-                0x080009c2                LevelAlgorithm::LevelAlgorithm()
-                0x080009c2                LevelAlgorithm::LevelAlgorithm()
- *fill*         0x080009ca        0x2 
+                0x080005ea        0x8 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+                0x080005ea                LevelAlgorithm::LevelAlgorithm()
+                0x080005ea                LevelAlgorithm::LevelAlgorithm()
+ *fill*         0x080005f2        0x2 
  .text._ZNK14LevelAlgorithm17angleToBrightnessEf
-                0x080009cc       0x58 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
-                0x080009cc                LevelAlgorithm::angleToBrightness(float) const
+                0x080005f4       0x58 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+                0x080005f4                LevelAlgorithm::angleToBrightness(float) const
  .text._ZN14LevelAlgorithm6updateEff
-                0x08000a24       0xac CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
-                0x08000a24                LevelAlgorithm::update(float, float)
+                0x0800064c       0xa8 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+                0x0800064c                LevelAlgorithm::update(float, float)
  .text._Z18SystemClock_Configv
-                0x08000ad0       0xd0 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
-                0x08000ad0                SystemClock_Config()
+                0x080006f4       0xd0 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+                0x080006f4                SystemClock_Config()
  .text.startup.main
-                0x08000ba0      0x404 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
-                0x08000ba0                main
+                0x080007c4      0x404 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+                0x080007c4                main
  .text.HAL_MspInit
-                0x08000fa4       0x38 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
-                0x08000fa4                HAL_MspInit
+                0x08000bc8       0x38 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x08000bc8                HAL_MspInit
  .text.HAL_SPI_MspInit
-                0x08000fdc       0xa0 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
-                0x08000fdc                HAL_SPI_MspInit
+                0x08000c00       0xa0 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x08000c00                HAL_SPI_MspInit
  .text.HAL_TIM_PWM_MspInit
-                0x0800107c       0x68 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
-                0x0800107c                HAL_TIM_PWM_MspInit
+                0x08000ca0       0x68 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x08000ca0                HAL_TIM_PWM_MspInit
  .text.NMI_Handler
-                0x080010e4        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x080010e4                NMI_Handler
+                0x08000d08        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d08                NMI_Handler
  .text.HardFault_Handler
-                0x080010e6       0x28 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x080010e6                HardFault_Handler
+                0x08000d0a       0x28 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d0a                HardFault_Handler
  .text.MemManage_Handler
-                0x0800110e        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x0800110e                MemManage_Handler
+                0x08000d32        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d32                MemManage_Handler
  .text.BusFault_Handler
-                0x08001110        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08001110                BusFault_Handler
+                0x08000d34        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d34                BusFault_Handler
  .text.UsageFault_Handler
-                0x08001112        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08001112                UsageFault_Handler
+                0x08000d36        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d36                UsageFault_Handler
  .text.SVC_Handler
-                0x08001114        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08001114                SVC_Handler
+                0x08000d38        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d38                SVC_Handler
  .text.DebugMon_Handler
-                0x08001116        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08001116                DebugMon_Handler
+                0x08000d3a        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d3a                DebugMon_Handler
  .text.PendSV_Handler
-                0x08001118        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x08001118                PendSV_Handler
+                0x08000d3c        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d3c                PendSV_Handler
  .text.SysTick_Handler
-                0x0800111a        0x4 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
-                0x0800111a                SysTick_Handler
- *fill*         0x0800111e        0x2 
+                0x08000d3e        0x4 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x08000d3e                SysTick_Handler
+ *fill*         0x08000d42        0x2 
  .text.SystemInit
-                0x08001120       0x14 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
-                0x08001120                SystemInit
+                0x08000d44       0x14 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+                0x08000d44                SystemInit
  .text.SystemCoreClockUpdate
-                0x08001134       0x6c CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
-                0x08001134                SystemCoreClockUpdate
+                0x08000d58       0x6c CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+                0x08000d58                SystemCoreClockUpdate
  .text.HAL_InitTick
-                0x080011a0       0x48 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x080011a0                HAL_InitTick
+                0x08000dc4       0x48 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x08000dc4                HAL_InitTick
  .text.HAL_Init
-                0x080011e8       0x34 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x080011e8                HAL_Init
+                0x08000e0c       0x34 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x08000e0c                HAL_Init
  .text.HAL_IncTick
-                0x0800121c       0x18 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x0800121c                HAL_IncTick
+                0x08000e40       0x18 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x08000e40                HAL_IncTick
  .text.HAL_GetTick
-                0x08001234        0xc CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x08001234                HAL_GetTick
+                0x08000e58        0xc CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x08000e58                HAL_GetTick
  .text.HAL_Delay
-                0x08001240       0x28 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
-                0x08001240                HAL_Delay
+                0x08000e64       0x28 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x08000e64                HAL_Delay
  .text.HAL_NVIC_SetPriorityGrouping
-                0x08001268       0x24 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
-                0x08001268                HAL_NVIC_SetPriorityGrouping
+                0x08000e8c       0x24 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08000e8c                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x0800128c       0x5c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
-                0x0800128c                HAL_NVIC_SetPriority
+                0x08000eb0       0x5c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08000eb0                HAL_NVIC_SetPriority
  .text.HAL_SYSTICK_Config
-                0x080012e8       0x28 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
-                0x080012e8                HAL_SYSTICK_Config
+                0x08000f0c       0x28 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08000f0c                HAL_SYSTICK_Config
  .text.HAL_SYSTICK_CLKSourceConfig
-                0x08001310       0x16 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
-                0x08001310                HAL_SYSTICK_CLKSourceConfig
- *fill*         0x08001326        0x2 
+                0x08000f34       0x16 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x08000f34                HAL_SYSTICK_CLKSourceConfig
+ *fill*         0x08000f4a        0x2 
  .text.HAL_GPIO_Init
-                0x08001328      0x1a8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
-                0x08001328                HAL_GPIO_Init
- .text.HAL_GPIO_ReadPin
-                0x080014d0        0xc CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
-                0x080014d0                HAL_GPIO_ReadPin
+                0x08000f4c      0x1a8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x08000f4c                HAL_GPIO_Init
  .text.HAL_GPIO_WritePin
-                0x080014dc        0xa CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
-                0x080014dc                HAL_GPIO_WritePin
- *fill*         0x080014e6        0x2 
+                0x080010f4        0xa CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x080010f4                HAL_GPIO_WritePin
+ *fill*         0x080010fe        0x2 
  .text.HAL_RCC_OscConfig
-                0x080014e8      0x364 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x080014e8                HAL_RCC_OscConfig
+                0x08001100      0x364 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x08001100                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x0800184c       0x5c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x0800184c                HAL_RCC_GetSysClockFreq
+                0x08001464       0x5c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x08001464                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x080018a8      0x134 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
-                0x080018a8                HAL_RCC_ClockConfig
+                0x080014c0      0x134 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x080014c0                HAL_RCC_ClockConfig
  .text.SPI_WaitFlagStateUntilTimeout
-                0x080019dc       0xb4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x080015f4       0xb4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.SPI_EndRxTxTransaction
-                0x08001a90       0x78 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x080016a8       0x78 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .text.SPI_EndRxTransaction
+                0x08001720       0x58 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .text.HAL_SPI_Init
-                0x08001b08       0xb8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
-                0x08001b08                HAL_SPI_Init
+                0x08001778       0xb8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x08001778                HAL_SPI_Init
  .text.HAL_SPI_Transmit
-                0x08001bc0      0x154 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
-                0x08001bc0                HAL_SPI_Transmit
+                0x08001830      0x154 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x08001830                HAL_SPI_Transmit
  .text.HAL_SPI_TransmitReceive
-                0x08001d14      0x1e8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
-                0x08001d14                HAL_SPI_TransmitReceive
+                0x08001984      0x1e8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x08001984                HAL_SPI_TransmitReceive
+ .text.HAL_SPI_Receive
+                0x08001b6c      0x13c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x08001b6c                HAL_SPI_Receive
  .text.TIM_OC1_SetConfig
-                0x08001efc       0x68 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001ca8       0x68 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .text.TIM_OC3_SetConfig
-                0x08001f64       0x70 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001d10       0x70 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .text.TIM_OC4_SetConfig
-                0x08001fd4       0x4c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001d80       0x4c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .text.TIM_Base_SetConfig
-                0x08002020       0xd4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08002020                TIM_Base_SetConfig
+                0x08001dcc       0xd4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001dcc                TIM_Base_SetConfig
  .text.HAL_TIM_PWM_Init
-                0x080020f4       0x58 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x080020f4                HAL_TIM_PWM_Init
+                0x08001ea0       0x58 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001ea0                HAL_TIM_PWM_Init
  .text.TIM_OC2_SetConfig
-                0x0800214c       0x70 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x0800214c                TIM_OC2_SetConfig
+                0x08001ef8       0x70 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001ef8                TIM_OC2_SetConfig
  .text.HAL_TIM_PWM_ConfigChannel
-                0x080021bc       0xac CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x080021bc                HAL_TIM_PWM_ConfigChannel
+                0x08001f68       0xac CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08001f68                HAL_TIM_PWM_ConfigChannel
  .text.TIM_CCxChannelCmd
-                0x08002268       0x1c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08002268                TIM_CCxChannelCmd
+                0x08002014       0x1c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08002014                TIM_CCxChannelCmd
  .text.HAL_TIM_OC_Start
-                0x08002284       0xc8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x08002284                HAL_TIM_OC_Start
+                0x08002030       0xc8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x08002030                HAL_TIM_OC_Start
  .text.HAL_TIM_PWM_Start
-                0x0800234c        0x4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
-                0x0800234c                HAL_TIM_PWM_Start
+                0x080020f8        0x4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x080020f8                HAL_TIM_PWM_Start
  .text._GetAvailWriteSpace
-                0x08002350       0x12 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x080020fc       0x12 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
  .text._WriteNoCheck
-                0x08002362       0x38 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x0800210e       0x38 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
  .text._WriteBlocking
-                0x0800239a       0x5a CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
- .text._DoInit  0x080023f4       0x68 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x08002146       0x5a CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+ .text._DoInit  0x080021a0       0x68 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
  .text.SEGGER_RTT_WriteNoLock
-                0x0800245c       0x58 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
-                0x0800245c                SEGGER_RTT_WriteNoLock
+                0x08002208       0x58 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x08002208                SEGGER_RTT_WriteNoLock
  .text.SEGGER_RTT_Write
-                0x080024b4       0x28 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
-                0x080024b4                SEGGER_RTT_Write
+                0x08002260       0x28 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x08002260                SEGGER_RTT_Write
  .text.SEGGER_RTT_Init
-                0x080024dc        0x4 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
-                0x080024dc                SEGGER_RTT_Init
+                0x08002288        0x4 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x08002288                SEGGER_RTT_Init
  .text._StoreChar
-                0x080024e0       0x3c CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+                0x0800228c       0x3c CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
  .text._PrintUnsigned
-                0x0800251c       0xd0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+                0x080022c8       0xd0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
  .text.SEGGER_RTT_vprintf
-                0x080025ec      0x2f4 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
-                0x080025ec                SEGGER_RTT_vprintf
+                0x08002398      0x2f4 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+                0x08002398                SEGGER_RTT_vprintf
  .text.SEGGER_RTT_printf
-                0x080028e0       0x1c CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
-                0x080028e0                SEGGER_RTT_printf
+                0x0800268c       0x1c CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+                0x0800268c                SEGGER_RTT_printf
  .text.Reset_Handler
-                0x080028fc       0x50 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
-                0x080028fc                Reset_Handler
+                0x080026a8       0x50 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+                0x080026a8                Reset_Handler
  .text.Default_Handler
-                0x0800294c        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
-                0x0800294c                DMA1_Stream3_IRQHandler
-                0x0800294c                HASH_RNG_IRQHandler
-                0x0800294c                EXTI2_IRQHandler
-                0x0800294c                TIM8_CC_IRQHandler
-                0x0800294c                TIM1_CC_IRQHandler
-                0x0800294c                DMA2_Stream5_IRQHandler
-                0x0800294c                DMA1_Stream5_IRQHandler
-                0x0800294c                PVD_IRQHandler
-                0x0800294c                SDIO_IRQHandler
-                0x0800294c                TAMP_STAMP_IRQHandler
-                0x0800294c                CAN2_RX1_IRQHandler
-                0x0800294c                EXTI3_IRQHandler
-                0x0800294c                TIM8_TRG_COM_TIM14_IRQHandler
-                0x0800294c                TIM1_UP_TIM10_IRQHandler
-                0x0800294c                TIM8_UP_TIM13_IRQHandler
-                0x0800294c                I2C3_ER_IRQHandler
-                0x0800294c                EXTI0_IRQHandler
-                0x0800294c                I2C2_EV_IRQHandler
-                0x0800294c                DMA1_Stream2_IRQHandler
-                0x0800294c                CAN1_RX0_IRQHandler
-                0x0800294c                FPU_IRQHandler
-                0x0800294c                OTG_HS_WKUP_IRQHandler
-                0x0800294c                CAN2_SCE_IRQHandler
-                0x0800294c                DMA2_Stream2_IRQHandler
-                0x0800294c                SPI1_IRQHandler
-                0x0800294c                TIM6_DAC_IRQHandler
-                0x0800294c                TIM1_BRK_TIM9_IRQHandler
-                0x0800294c                DCMI_IRQHandler
-                0x0800294c                CAN2_RX0_IRQHandler
-                0x0800294c                DMA2_Stream3_IRQHandler
-                0x0800294c                USART6_IRQHandler
-                0x0800294c                USART3_IRQHandler
-                0x0800294c                CAN1_RX1_IRQHandler
-                0x0800294c                UART5_IRQHandler
-                0x0800294c                DMA2_Stream0_IRQHandler
-                0x0800294c                TIM4_IRQHandler
-                0x0800294c                I2C1_EV_IRQHandler
-                0x0800294c                DMA1_Stream6_IRQHandler
-                0x0800294c                DMA1_Stream1_IRQHandler
-                0x0800294c                UART4_IRQHandler
-                0x0800294c                TIM3_IRQHandler
-                0x0800294c                RCC_IRQHandler
-                0x0800294c                TIM8_BRK_TIM12_IRQHandler
-                0x0800294c                Default_Handler
-                0x0800294c                EXTI15_10_IRQHandler
-                0x0800294c                ADC_IRQHandler
-                0x0800294c                DMA1_Stream7_IRQHandler
-                0x0800294c                TIM7_IRQHandler
-                0x0800294c                CAN2_TX_IRQHandler
-                0x0800294c                TIM5_IRQHandler
-                0x0800294c                DMA2_Stream7_IRQHandler
-                0x0800294c                I2C3_EV_IRQHandler
-                0x0800294c                EXTI9_5_IRQHandler
-                0x0800294c                RTC_WKUP_IRQHandler
-                0x0800294c                ETH_WKUP_IRQHandler
-                0x0800294c                SPI2_IRQHandler
-                0x0800294c                OTG_HS_EP1_IN_IRQHandler
-                0x0800294c                DMA1_Stream0_IRQHandler
-                0x0800294c                CAN1_TX_IRQHandler
-                0x0800294c                EXTI4_IRQHandler
-                0x0800294c                FSMC_IRQHandler
-                0x0800294c                ETH_IRQHandler
-                0x0800294c                OTG_HS_EP1_OUT_IRQHandler
-                0x0800294c                WWDG_IRQHandler
-                0x0800294c                TIM2_IRQHandler
-                0x0800294c                OTG_FS_WKUP_IRQHandler
-                0x0800294c                TIM1_TRG_COM_TIM11_IRQHandler
-                0x0800294c                OTG_HS_IRQHandler
-                0x0800294c                EXTI1_IRQHandler
-                0x0800294c                USART2_IRQHandler
-                0x0800294c                I2C2_ER_IRQHandler
-                0x0800294c                DMA2_Stream1_IRQHandler
-                0x0800294c                CAN1_SCE_IRQHandler
-                0x0800294c                FLASH_IRQHandler
-                0x0800294c                DMA2_Stream4_IRQHandler
-                0x0800294c                USART1_IRQHandler
-                0x0800294c                OTG_FS_IRQHandler
-                0x0800294c                SPI3_IRQHandler
-                0x0800294c                DMA1_Stream4_IRQHandler
-                0x0800294c                I2C1_ER_IRQHandler
-                0x0800294c                DMA2_Stream6_IRQHandler
-                0x0800294c                RTC_Alarm_IRQHandler
- .text._Znwj    0x0800294e       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_op.o)
-                0x0800294e                operator new(unsigned int)
+                0x080026f8        0x2 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+                0x080026f8                DMA1_Stream3_IRQHandler
+                0x080026f8                HASH_RNG_IRQHandler
+                0x080026f8                EXTI2_IRQHandler
+                0x080026f8                TIM8_CC_IRQHandler
+                0x080026f8                TIM1_CC_IRQHandler
+                0x080026f8                DMA2_Stream5_IRQHandler
+                0x080026f8                DMA1_Stream5_IRQHandler
+                0x080026f8                PVD_IRQHandler
+                0x080026f8                SDIO_IRQHandler
+                0x080026f8                TAMP_STAMP_IRQHandler
+                0x080026f8                CAN2_RX1_IRQHandler
+                0x080026f8                EXTI3_IRQHandler
+                0x080026f8                TIM8_TRG_COM_TIM14_IRQHandler
+                0x080026f8                TIM1_UP_TIM10_IRQHandler
+                0x080026f8                TIM8_UP_TIM13_IRQHandler
+                0x080026f8                I2C3_ER_IRQHandler
+                0x080026f8                EXTI0_IRQHandler
+                0x080026f8                I2C2_EV_IRQHandler
+                0x080026f8                DMA1_Stream2_IRQHandler
+                0x080026f8                CAN1_RX0_IRQHandler
+                0x080026f8                FPU_IRQHandler
+                0x080026f8                OTG_HS_WKUP_IRQHandler
+                0x080026f8                CAN2_SCE_IRQHandler
+                0x080026f8                DMA2_Stream2_IRQHandler
+                0x080026f8                SPI1_IRQHandler
+                0x080026f8                TIM6_DAC_IRQHandler
+                0x080026f8                TIM1_BRK_TIM9_IRQHandler
+                0x080026f8                DCMI_IRQHandler
+                0x080026f8                CAN2_RX0_IRQHandler
+                0x080026f8                DMA2_Stream3_IRQHandler
+                0x080026f8                USART6_IRQHandler
+                0x080026f8                USART3_IRQHandler
+                0x080026f8                CAN1_RX1_IRQHandler
+                0x080026f8                UART5_IRQHandler
+                0x080026f8                DMA2_Stream0_IRQHandler
+                0x080026f8                TIM4_IRQHandler
+                0x080026f8                I2C1_EV_IRQHandler
+                0x080026f8                DMA1_Stream6_IRQHandler
+                0x080026f8                DMA1_Stream1_IRQHandler
+                0x080026f8                UART4_IRQHandler
+                0x080026f8                TIM3_IRQHandler
+                0x080026f8                RCC_IRQHandler
+                0x080026f8                TIM8_BRK_TIM12_IRQHandler
+                0x080026f8                Default_Handler
+                0x080026f8                EXTI15_10_IRQHandler
+                0x080026f8                ADC_IRQHandler
+                0x080026f8                DMA1_Stream7_IRQHandler
+                0x080026f8                TIM7_IRQHandler
+                0x080026f8                CAN2_TX_IRQHandler
+                0x080026f8                TIM5_IRQHandler
+                0x080026f8                DMA2_Stream7_IRQHandler
+                0x080026f8                I2C3_EV_IRQHandler
+                0x080026f8                EXTI9_5_IRQHandler
+                0x080026f8                RTC_WKUP_IRQHandler
+                0x080026f8                ETH_WKUP_IRQHandler
+                0x080026f8                SPI2_IRQHandler
+                0x080026f8                OTG_HS_EP1_IN_IRQHandler
+                0x080026f8                DMA1_Stream0_IRQHandler
+                0x080026f8                CAN1_TX_IRQHandler
+                0x080026f8                EXTI4_IRQHandler
+                0x080026f8                FSMC_IRQHandler
+                0x080026f8                ETH_IRQHandler
+                0x080026f8                OTG_HS_EP1_OUT_IRQHandler
+                0x080026f8                WWDG_IRQHandler
+                0x080026f8                TIM2_IRQHandler
+                0x080026f8                OTG_FS_WKUP_IRQHandler
+                0x080026f8                TIM1_TRG_COM_TIM11_IRQHandler
+                0x080026f8                OTG_HS_IRQHandler
+                0x080026f8                EXTI1_IRQHandler
+                0x080026f8                USART2_IRQHandler
+                0x080026f8                I2C2_ER_IRQHandler
+                0x080026f8                DMA2_Stream1_IRQHandler
+                0x080026f8                CAN1_SCE_IRQHandler
+                0x080026f8                FLASH_IRQHandler
+                0x080026f8                DMA2_Stream4_IRQHandler
+                0x080026f8                USART1_IRQHandler
+                0x080026f8                OTG_FS_IRQHandler
+                0x080026f8                SPI3_IRQHandler
+                0x080026f8                DMA1_Stream4_IRQHandler
+                0x080026f8                I2C1_ER_IRQHandler
+                0x080026f8                DMA2_Stream6_IRQHandler
+                0x080026f8                RTC_Alarm_IRQHandler
+ .text._Znwj    0x080026fa       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_op.o)
+                0x080026fa                operator new(unsigned int)
  .text._ZSt15get_new_handlerv
-                0x08002970       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_handler.o)
-                0x08002970                std::get_new_handler()
- .text.atan2f   0x08002980        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_atan2.o)
-                0x08002980                atan2f
+                0x0800271c       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_handler.o)
+                0x0800271c                std::get_new_handler()
+ .text.atan2f   0x0800272c        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_atan2.o)
+                0x0800272c                atan2f
  .text.__ieee754_atan2f
-                0x08002984      0x144 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
-                0x08002984                __ieee754_atan2f
- .text.atanf    0x08002ac8      0x1b8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
-                0x08002ac8                atanf
- .text.fabsf    0x08002c80       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_fabs.o)
-                0x08002c80                fabsf
- .text.abort    0x08002c90        0xe /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-abort.o)
-                0x08002c90                abort
- *fill*         0x08002c9e        0x2 
- .text.malloc   0x08002ca0       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
-                0x08002ca0                malloc
+                0x08002730      0x144 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
+                0x08002730                __ieee754_atan2f
+ .text.atanf    0x08002874      0x1b8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
+                0x08002874                atanf
+ .text.fabsf    0x08002a2c       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_fabs.o)
+                0x08002a2c                fabsf
+ .text.abort    0x08002a3c        0xe /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-abort.o)
+                0x08002a3c                abort
+ *fill*         0x08002a4a        0x2 
+ .text.malloc   0x08002a4c       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
+                0x08002a4c                malloc
  .text.sbrk_aligned
-                0x08002cb0       0x44 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x08002a5c       0x44 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
  .text._malloc_r
-                0x08002cf4       0xf8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
-                0x08002cf4                _malloc_r
+                0x08002aa0       0xf8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+                0x08002aa0                _malloc_r
  .text.__malloc_lock
-                0x08002dec        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
-                0x08002dec                __malloc_lock
+                0x08002b98        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+                0x08002b98                __malloc_lock
  .text.__malloc_unlock
-                0x08002df8        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
-                0x08002df8                __malloc_unlock
- .text.memset   0x08002e04       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
-                0x08002e04                memset
+                0x08002ba4        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+                0x08002ba4                __malloc_unlock
+ .text.memset   0x08002bb0       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
+                0x08002bb0                memset
  .text._raise_r
-                0x08002e14       0x50 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
-                0x08002e14                _raise_r
- .text.raise    0x08002e64       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
-                0x08002e64                raise
- .text._kill_r  0x08002e74       0x24 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
-                0x08002e74                _kill_r
+                0x08002bc0       0x50 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
+                0x08002bc0                _raise_r
+ .text.raise    0x08002c10       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
+                0x08002c10                raise
+ .text._kill_r  0x08002c20       0x24 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
+                0x08002c20                _kill_r
  .text._getpid_r
-                0x08002e98        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
-                0x08002e98                _getpid_r
- .text._sbrk_r  0x08002e9c       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
-                0x08002e9c                _sbrk_r
+                0x08002c44        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
+                0x08002c44                _getpid_r
+ .text._sbrk_r  0x08002c48       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+                0x08002c48                _sbrk_r
  .text.__libc_init_array
-                0x08002ebc       0x48 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
-                0x08002ebc                __libc_init_array
+                0x08002c68       0x48 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
+                0x08002c68                __libc_init_array
  .text.__retarget_lock_acquire_recursive
-                0x08002f04        0x2 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x08002f04                __retarget_lock_acquire_recursive
+                0x08002cb0        0x2 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x08002cb0                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08002f06        0x2 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
-                0x08002f06                __retarget_lock_release_recursive
- .text.memcpy   0x08002f08       0x1c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy-stub.o)
-                0x08002f08                memcpy
+                0x08002cb2        0x2 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+                0x08002cb2                __retarget_lock_release_recursive
+ .text.memcpy   0x08002cb4       0x1c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy-stub.o)
+                0x08002cb4                memcpy
  .text.__udivmoddi4
-                0x08002f24      0x320 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x08002f24                __udivmoddi4
- .text._getpid  0x08003244       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
-                0x08003244                _getpid
- .text._kill    0x08003254       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
-                0x08003254                _kill
- .text._sbrk    0x08003264       0x1c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
-                0x08003264                _sbrk
- .text._exit    0x08003280        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
-                0x08003280                _exit
+                0x08002cd0      0x320 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x08002cd0                __udivmoddi4
+ .text._getpid  0x08002ff0       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
+                0x08002ff0                _getpid
+ .text._kill    0x08003000       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
+                0x08003000                _kill
+ .text._sbrk    0x08003010       0x1c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
+                0x08003010                _sbrk
+ .text._exit    0x0800302c        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
+                0x0800302c                _exit
  *(.glue_7)
- .glue_7        0x08003284        0x0 linker stubs
+ .glue_7        0x08003030        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08003284        0x0 linker stubs
+ .glue_7t       0x08003030        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08003284        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .eh_frame      0x08003030        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.init)
- .init          0x08003284        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x08003284                _init
- .init          0x08003288        0x8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
+ .init          0x08003030        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x08003030                _init
+ .init          0x08003034        0x8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
  *(.fini)
- .fini          0x08003290        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
-                0x08003290                _fini
- .fini          0x08003294        0x8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
-                0x0800329c                        . = ALIGN (0x4)
-                0x0800329c                        _etext = .
+ .fini          0x0800303c        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crti.o
+                0x0800303c                _fini
+ .fini          0x08003040        0x8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x08003048                        . = ALIGN (0x4)
+                0x08003048                        _etext = .
 
-.vfp11_veneer   0x0800329c        0x0
- .vfp11_veneer  0x0800329c        0x0 linker stubs
+.vfp11_veneer   0x08003048        0x0
+ .vfp11_veneer  0x08003048        0x0 linker stubs
 
-.v4_bx          0x0800329c        0x0
- .v4_bx         0x0800329c        0x0 linker stubs
+.v4_bx          0x08003048        0x0
+ .v4_bx         0x08003048        0x0 linker stubs
 
-.iplt           0x0800329c        0x0
- .iplt          0x0800329c        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.iplt           0x08003048        0x0
+ .iplt          0x08003048        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0800329c      0x844
-                0x0800329c                        . = ALIGN (0x4)
+.rodata         0x08003048      0x654
+                0x08003048                        . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata._ZN13Accelerometer12readRegisterEhPh.str1.1
-                0x0800329c      0x7da CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                                0x11e (size before relaxing)
+                0x08003048      0x5e9 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                                 0x24 (size before relaxing)
  .rodata._ZN13Accelerometer4initEv.str1.1
-                0x08003a76        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                                0x30a (size before relaxing)
+                0x08003631        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                                0x202 (size before relaxing)
+ .rodata._ZN13Accelerometer11readRawDataERsS0_S0_.str1.1
+                0x08003631        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                                 0x1f (size before relaxing)
  .rodata.main.str1.1
-                0x08003a76        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
-                                0x3a2 (size before relaxing)
+                0x08003631        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+                                0x394 (size before relaxing)
  .rodata.AHBPrescTable
-                0x08003a76       0x10 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
-                0x08003a76                AHBPrescTable
+                0x08003631       0x10 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+                0x08003631                AHBPrescTable
  .rodata._DoInit.str1.1
-                0x08003a86        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x08003641        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
                                   0x9 (size before relaxing)
  .rodata._aInitStr.0
-                0x08003a86       0x11 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x08003641       0x11 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
  .rodata.SEGGER_RTT_vprintf.str1.1
-                0x08003a97        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+                0x08003652        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
                                   0x7 (size before relaxing)
  .rodata._aV2C.0
-                0x08003a97       0x10 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
- *fill*         0x08003aa7        0x1 
+                0x08003652       0x10 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+ *fill*         0x08003662        0x2 
  .rodata.CSWTCH.7
-                0x08003aa8        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
+                0x08003664        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
  .rodata.CSWTCH.6
-                0x08003ab4        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
+                0x08003670        0xc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
  .rodata.atanlo
-                0x08003ac0       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
+                0x0800367c       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
  .rodata.atanhi
-                0x08003ad0       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
-                0x08003ae0                        . = ALIGN (0x4)
+                0x0800368c       0x10 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
+                0x0800369c                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08003ae0        0x8
-                0x08003ae0                        __exidx_start = .
+.ARM            0x0800369c        0x8
+                0x0800369c                        __exidx_start = .
  *(.ARM.exidx*)
  .ARM.exidx.text.__udivmoddi4
-                0x08003ae0        0x8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
-                0x08003ae8                        __exidx_end = .
+                0x0800369c        0x8 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x080036a4                        __exidx_end = .
 
-.rel.dyn        0x08003ae8        0x0
- .rel.iplt      0x08003ae8        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x080036a4        0x0
+ .rel.iplt      0x080036a4        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.preinit_array  0x08003ae8        0x0
-                0x08003ae8                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x080036a4        0x0
+                0x080036a4                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08003ae8                        PROVIDE (__preinit_array_end = .)
+                0x080036a4                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x08003ae8        0x4
-                0x08003ae8                        PROVIDE (__init_array_start = .)
+.init_array     0x080036a4        0x4
+                0x080036a4                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x08003ae8        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
-                0x08003aec                        PROVIDE (__init_array_end = .)
+ .init_array    0x080036a4        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+                0x080036a8                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x08003aec        0x4
+.fini_array     0x080036a8        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08003aec        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x080036a8        0x4 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x08003af0                        _sidata = LOADADDR (.data)
+                0x080036ac                        _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x5c load address 0x08003af0
+.data           0x20000000       0x5c load address 0x080036ac
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -2864,17 +2847,17 @@ LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-
                 0x2000005c                        _edata = .
 
 .tm_clone_table
-                0x2000005c        0x0 load address 0x08003b4c
+                0x2000005c        0x0 load address 0x08003708
  .tm_clone_table
                 0x2000005c        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
  .tm_clone_table
                 0x2000005c        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtend.o
 
-.igot.plt       0x2000005c        0x0 load address 0x08003b4c
+.igot.plt       0x2000005c        0x0 load address 0x08003708
  .igot.plt      0x2000005c        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtbegin.o
                 0x2000005c                        . = ALIGN (0x4)
 
-.bss            0x2000005c      0x6a4 load address 0x08003b4c
+.bss            0x2000005c      0x6a4 load address 0x08003708
                 0x2000005c                        _sbss = .
                 0x2000005c                        __bss_start__ = _sbss
  *(.bss)
@@ -2925,7 +2908,7 @@ LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-
                 0x20000700                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000700     0x2200 load address 0x08003b4c
+                0x20000700     0x2200 load address 0x08003708
                 0x20000700                        . = ALIGN (0x8)
                 0x20000700                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
@@ -3020,97 +3003,95 @@ LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-
  .ARM.attributes
                 0x0000075f       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy-stub.o)
  .ARM.attributes
-                0x00000793       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
+                0x00000793       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x000007b5       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x000007b5       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x000007d7       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+                0x000007e9       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x0000080b       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+                0x0000080b       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
  .ARM.attributes
-                0x0000082d       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
+                0x0000083f       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
  .ARM.attributes
-                0x00000861       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
+                0x00000873       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
  .ARM.attributes
-                0x00000895       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
+                0x000008a7       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
  .ARM.attributes
-                0x000008c9       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
+                0x000008db       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtend.o
  .ARM.attributes
-                0x000008fd       0x34 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtend.o
- .ARM.attributes
-                0x00000931       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
+                0x0000090f       0x22 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/crtn.o
 OUTPUT(level_indicator.elf elf32-littlearm)
 LOAD linker stubs
 LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc.a
 LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x00000000    0x13281
- .debug_info    0x00000000     0x25eb CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
- .debug_info    0x000025eb      0xda6 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
- .debug_info    0x00003391      0x8b4 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
- .debug_info    0x00003c45     0x35f8 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
- .debug_info    0x0000723d      0xe87 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_info    0x000080c4      0x1a6 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_info    0x0000826a      0x527 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_info    0x00008791      0xa18 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_info    0x000091a9      0xffe CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_info    0x0000a1a7      0x70e CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_info    0x0000a8b5      0xadc CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_info    0x0000b391     0x1d92 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_info    0x0000d123     0x3f75 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_info    0x00011098     0x1b7f CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
- .debug_info    0x00012c17      0x63a CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
- .debug_info    0x00013251       0x30 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+.debug_info     0x00000000    0x131e2
+ .debug_info    0x00000000     0x2544 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+ .debug_info    0x00002544      0xda6 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+ .debug_info    0x000032ea      0x8c2 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+ .debug_info    0x00003bac     0x35f2 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+ .debug_info    0x0000719e      0xe87 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_info    0x00008025      0x1a6 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_info    0x000081cb      0x527 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_info    0x000086f2      0xa18 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_info    0x0000910a      0xffe CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_info    0x0000a108      0x70e CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_info    0x0000a816      0xadc CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_info    0x0000b2f2     0x1d92 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_info    0x0000d084     0x3f75 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_info    0x00010ff9     0x1b7f CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+ .debug_info    0x00012b78      0x63a CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+ .debug_info    0x000131b2       0x30 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
 
-.debug_abbrev   0x00000000     0x2ce0
- .debug_abbrev  0x00000000      0x495 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
- .debug_abbrev  0x00000495      0x30a CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
- .debug_abbrev  0x0000079f      0x2d1 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
- .debug_abbrev  0x00000a70      0x63f CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
- .debug_abbrev  0x000010af      0x1ea CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_abbrev  0x00001299       0xfb CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_abbrev  0x00001394      0x11e CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_abbrev  0x000014b2      0x283 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_abbrev  0x00001735      0x37e CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_abbrev  0x00001ab3      0x209 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_abbrev  0x00001cbc      0x356 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_abbrev  0x00002012      0x360 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_abbrev  0x00002372      0x387 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_abbrev  0x000026f9      0x325 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
- .debug_abbrev  0x00002a1e      0x29e CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
- .debug_abbrev  0x00002cbc       0x24 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+.debug_abbrev   0x00000000     0x2d0e
+ .debug_abbrev  0x00000000      0x4aa CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+ .debug_abbrev  0x000004aa      0x30a CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+ .debug_abbrev  0x000007b4      0x2e1 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+ .debug_abbrev  0x00000a95      0x648 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+ .debug_abbrev  0x000010dd      0x1ea CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_abbrev  0x000012c7       0xfb CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_abbrev  0x000013c2      0x11e CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_abbrev  0x000014e0      0x283 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_abbrev  0x00001763      0x37e CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_abbrev  0x00001ae1      0x209 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_abbrev  0x00001cea      0x356 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_abbrev  0x00002040      0x360 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_abbrev  0x000023a0      0x387 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_abbrev  0x00002727      0x325 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+ .debug_abbrev  0x00002a4c      0x29e CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+ .debug_abbrev  0x00002cea       0x24 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
 
 .debug_loclists
-                0x00000000     0x69e0
+                0x00000000     0x6a4c
  .debug_loclists
-                0x00000000      0x204 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x00000000      0x1f9 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
  .debug_loclists
-                0x00000204      0x1a1 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+                0x000001f9      0x1a1 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
  .debug_loclists
-                0x000003a5      0x26f CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+                0x0000039a      0x26f CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
  .debug_loclists
-                0x00000614       0x70 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+                0x00000609       0xe7 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
  .debug_loclists
-                0x00000684       0x9d CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x000006f0       0x9d CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
  .debug_loclists
-                0x00000721       0x74 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+                0x0000078d       0x74 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
  .debug_loclists
-                0x00000795       0xd5 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x00000801       0xd5 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .debug_loclists
-                0x0000086a      0x45b CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x000008d6      0x45b CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_loclists
-                0x00000cc5      0x2a4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x00000d31      0x2a4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_loclists
-                0x00000f69      0x314 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x00000fd5      0x314 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_loclists
-                0x0000127d     0x1044 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x000012e9     0x1044 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .debug_loclists
-                0x000022c1     0x2bac CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x0000232d     0x2bac CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .debug_loclists
-                0x00004e6d     0x136f CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x00004ed9     0x136f CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
  .debug_loclists
-                0x000061dc      0x804 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+                0x00006248      0x804 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
 
 .debug_aranges  0x00000000      0xb80
  .debug_aranges
@@ -3147,90 +3128,90 @@ LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-
                 0x00000b58       0x28 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
 
 .debug_rnglists
-                0x00000000      0xbbd
+                0x00000000      0xc11
  .debug_rnglists
-                0x00000000       0x4b CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                0x00000000       0x70 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
  .debug_rnglists
-                0x0000004b       0x5b CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+                0x00000070       0x5b CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
  .debug_rnglists
-                0x000000a6       0x44 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+                0x000000cb       0x47 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
  .debug_rnglists
-                0x000000ea       0x67 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+                0x00000112       0x93 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
  .debug_rnglists
-                0x00000151       0x5c CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+                0x000001a5       0x5c CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
  .debug_rnglists
-                0x000001ad       0x43 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+                0x00000201       0x43 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
  .debug_rnglists
-                0x000001f0       0x19 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+                0x00000244       0x19 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
  .debug_rnglists
-                0x00000209       0xaf CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+                0x0000025d       0xaf CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
  .debug_rnglists
-                0x000002b8       0xe8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+                0x0000030c       0xe8 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
  .debug_rnglists
-                0x000003a0       0x52 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+                0x000003f4       0x52 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
  .debug_rnglists
-                0x000003f2       0x80 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+                0x00000446       0x80 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
  .debug_rnglists
-                0x00000472      0x1bf CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+                0x000004c6      0x1bf CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
  .debug_rnglists
-                0x00000631      0x338 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+                0x00000685      0x338 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
  .debug_rnglists
-                0x00000969      0x1f1 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+                0x000009bd      0x1f1 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
  .debug_rnglists
-                0x00000b5a       0x4a CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+                0x00000bae       0x4a CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
  .debug_rnglists
-                0x00000ba4       0x19 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+                0x00000bf8       0x19 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
 
-.debug_line     0x00000000     0xca20
- .debug_line    0x00000000      0x912 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
- .debug_line    0x00000912      0x5a1 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
- .debug_line    0x00000eb3      0x5eb CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
- .debug_line    0x0000149e      0xc29 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
- .debug_line    0x000020c7      0x3f4 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_line    0x000024bb      0x2cb CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_line    0x00002786      0x2e6 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_line    0x00002a6c      0x684 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_line    0x000030f0      0x901 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_line    0x000039f1      0x776 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_line    0x00004167      0xc60 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_line    0x00004dc7     0x22f2 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_line    0x000070b9     0x3f3d CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_line    0x0000aff6     0x12d9 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
- .debug_line    0x0000c2cf      0x6d7 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
- .debug_line    0x0000c9a6       0x7a CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+.debug_line     0x00000000     0xcb21
+ .debug_line    0x00000000      0x9c4 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+ .debug_line    0x000009c4      0x5a1 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+ .debug_line    0x00000f65      0x5f9 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+ .debug_line    0x0000155e      0xc6a CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+ .debug_line    0x000021c8      0x3f4 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_line    0x000025bc      0x2cb CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_line    0x00002887      0x2e6 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_line    0x00002b6d      0x684 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_line    0x000031f1      0x901 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_line    0x00003af2      0x776 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_line    0x00004268      0xc60 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_line    0x00004ec8     0x22f2 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_line    0x000071ba     0x3f3d CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_line    0x0000b0f7     0x12d9 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+ .debug_line    0x0000c3d0      0x6d7 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+ .debug_line    0x0000caa7       0x7a CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
 
-.debug_str      0x00000000     0x4b64
- .debug_str     0x00000000     0x4b64 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
-                               0x13a6 (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+.debug_str      0x00000000     0x4bc0
+ .debug_str     0x00000000     0x4bc0 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+                               0x13e3 (size before relaxing)
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
                                 0xcab (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
-                                0x6ad (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
-                               0x2407 (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+                                0x6c8 (size before relaxing)
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+                               0x2415 (size before relaxing)
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
                                 0xb1d (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
                                 0x28c (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
                                 0x384 (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
                                 0xb73 (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
                                 0xc84 (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
                                 0x4ef (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
                                 0x715 (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
                                 0xc03 (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
                                0x170e (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
                                 0x6cd (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
                                 0x30b (size before relaxing)
- .debug_str     0x00004b64        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+ .debug_str     0x00004bc0        0x0 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
                                  0x95 (size before relaxing)
 
 .comment        0x00000000       0x45
@@ -3265,60 +3246,56 @@ LOAD /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-
  .comment       0x00000045        0x0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
                                  0x46 (size before relaxing)
 
-.debug_frame    0x00000000     0x2570
- .debug_frame   0x00000000       0xec CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
- .debug_frame   0x000000ec       0x98 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
- .debug_frame   0x00000184       0x90 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
- .debug_frame   0x00000214       0x6c CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
- .debug_frame   0x00000280       0x9c CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
- .debug_frame   0x0000031c       0xa4 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
- .debug_frame   0x000003c0       0x30 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
- .debug_frame   0x000003f0      0x1f4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
- .debug_frame   0x000005e4      0x180 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
- .debug_frame   0x00000764       0xd4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
- .debug_frame   0x00000838      0x13c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
- .debug_frame   0x00000974      0x5a0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
- .debug_frame   0x00000f14      0xa30 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
- .debug_frame   0x00001944      0x40c CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
- .debug_frame   0x00001d50       0xb0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
- .debug_frame   0x00001e00       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_op.o)
- .debug_frame   0x00001e28       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_handler.o)
- .debug_frame   0x00001e58       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_atan2.o)
- .debug_frame   0x00001e78       0x44 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
- .debug_frame   0x00001ebc       0x4c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
- .debug_frame   0x00001f08       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_fabs.o)
- .debug_frame   0x00001f28       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-abort.o)
- .debug_frame   0x00001f50       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
- .debug_frame   0x00001f80       0x50 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
- .debug_frame   0x00001fd0       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
- .debug_frame   0x00002000      0x144 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x00002144       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
- .debug_frame   0x00002164       0xcc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
- .debug_frame   0x00002230       0x3c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
- .debug_frame   0x0000226c       0x2c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x00002298       0x2c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
- .debug_frame   0x000022c4       0xb0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
- .debug_frame   0x00002374       0x38 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
- .debug_frame   0x000023ac       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy-stub.o)
- .debug_frame   0x000023d4       0xac /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00002480       0x2c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x000024ac       0x44 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
- .debug_frame   0x000024f0       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
- .debug_frame   0x00002510       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
- .debug_frame   0x00002530       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
- .debug_frame   0x00002550       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
+.debug_frame    0x00000000     0x24d0
+ .debug_frame   0x00000000       0xf0 CMakeFiles/level_indicator.elf.dir/App/Src/accelerometer.cpp.obj
+ .debug_frame   0x000000f0       0x98 CMakeFiles/level_indicator.elf.dir/App/Src/led_controller.cpp.obj
+ .debug_frame   0x00000188       0x90 CMakeFiles/level_indicator.elf.dir/App/Src/level_algorithm.cpp.obj
+ .debug_frame   0x00000218       0x74 CMakeFiles/level_indicator.elf.dir/App/Src/main.cpp.obj
+ .debug_frame   0x0000028c       0x9c CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_hal_msp.c.obj
+ .debug_frame   0x00000328       0xa4 CMakeFiles/level_indicator.elf.dir/Core/Src/stm32f4xx_it.c.obj
+ .debug_frame   0x000003cc       0x30 CMakeFiles/level_indicator.elf.dir/Core/Src/system_stm32f4xx.c.obj
+ .debug_frame   0x000003fc      0x1f4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c.obj
+ .debug_frame   0x000005f0      0x180 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c.obj
+ .debug_frame   0x00000770       0xd4 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c.obj
+ .debug_frame   0x00000844      0x13c CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c.obj
+ .debug_frame   0x00000980      0x5a0 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c.obj
+ .debug_frame   0x00000f20      0xa30 CMakeFiles/level_indicator.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj
+ .debug_frame   0x00001950      0x40c CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT.c.obj
+ .debug_frame   0x00001d5c       0xb0 CMakeFiles/level_indicator.elf.dir/RTT/SEGGER_RTT_printf.c.obj
+ .debug_frame   0x00001e0c       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_op.o)
+ .debug_frame   0x00001e34       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libstdc++_nano.a(new_handler.o)
+ .debug_frame   0x00001e64       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-wf_atan2.o)
+ .debug_frame   0x00001e84       0x44 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-ef_atan2.o)
+ .debug_frame   0x00001ec8       0x4c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_atan.o)
+ .debug_frame   0x00001f14       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a(libm_a-sf_fabs.o)
+ .debug_frame   0x00001f34       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-abort.o)
+ .debug_frame   0x00001f5c       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-malloc.o)
+ .debug_frame   0x00001f8c       0x50 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x00001fdc       0x30 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x0000200c      0x144 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00002150       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x00002170       0xcc /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signal.o)
+ .debug_frame   0x0000223c       0x3c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-signalr.o)
+ .debug_frame   0x00002278       0x2c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x000022a4       0x2c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-init.o)
+ .debug_frame   0x000022d0       0xb0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00002380       0x38 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x000023b8       0x28 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x000023e0       0x2c /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000240c       0x44 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00002450       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(getpid.o)
+ .debug_frame   0x00002470       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(kill.o)
+ .debug_frame   0x00002490       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(sbrk.o)
+ .debug_frame   0x000024b0       0x20 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libnosys.a(_exit.o)
 
 .debug_line_str
-                0x00000000      0x164
+                0x00000000      0x157
  .debug_line_str
-                0x00000000      0x164 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
+                0x00000000      0x157 CMakeFiles/level_indicator.elf.dir/Core/Src/startup_stm32f407xx.s.obj
                                  0x79 (size before relaxing)
  .debug_line_str
-                0x00000164        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_arm_addsubdf3.o)
-                                 0xd7 (size before relaxing)
- .debug_line_str
-                0x00000164        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x00000157        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
                                  0xd2 (size before relaxing)
  .debug_line_str
-                0x00000164        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
+                0x00000157        0x0 /Users/mattheworris/arm-toolchain/arm-gnu-toolchain-15.2.rel1-darwin-arm64-arm-none-eabi/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v7e-m+fp/hard/libgcc.a(_dvmd_tls.o)
                                  0xd6 (size before relaxing)
