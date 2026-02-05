@@ -59,6 +59,9 @@ brew install cmake
 ### Build
 
 ```bash
+cd aero-app
+git submodule update --init --recursive
+
 cd cpp
 mkdir build && cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=../arm-none-eabi-gcc.cmake ..

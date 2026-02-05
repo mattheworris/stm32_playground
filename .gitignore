@@ -7,3 +7,6 @@ Cargo.lock
 /cpp/build/*.elf
 /cpp/build/*.hex
 /cpp/build/*.map
+
+# Vendored RTT lives in cpp/RTT; cpp/RTT_src is an optional upstream checkout
+/cpp/RTT_src/
