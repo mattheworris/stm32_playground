@@ -3,3 +3,7 @@ Cargo.lock
 
 # CPP build artifacts
 /cpp/build/CMakeFiles/
+/cpp/build/*.bin
+/cpp/build/*.elf
+/cpp/build/*.hex
+/cpp/build/*.map

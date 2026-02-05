@@ -117,8 +117,17 @@ int main(void)
 
             // Log every second
             if (loop_count % 100 == 0) {
-                rtt_println("X: %.3f, Y: %.3f | LEDs: N=%d E=%d S=%d W=%d",
-                           x, y,
+                // Convert floats to integers for printf (RTT may not support %f)
+                int x_int = (int)(x * 1000);
+                int y_int = (int)(y * 1000);
+                // For negative numbers, make fractional part positive
+                int x_frac = x_int % 1000;
+                int y_frac = y_int % 1000;
+                if (x_frac < 0) x_frac = -x_frac;
+                if (y_frac < 0) y_frac = -y_frac;
+                rtt_println("X: %d.%03d, Y: %d.%03d | LEDs: N=%u E=%u S=%u W=%u",
+                           x_int / 1000, x_frac,
+                           y_int / 1000, y_frac,
                            brightness.north, brightness.east,
                            brightness.south, brightness.west);
             }
@@ -244,12 +253,8 @@ static void MX_SPI1_Init(void)
     rtt_println("  Bit 1 (CPOL): %d", (SPI1->CR1 & SPI_CR1_CPOL) ? 1 : 0);
     rtt_println("  Bits 3-5 (BR): %d", (SPI1->CR1 >> 3) & 0x7);
 
-    // Explicitly enable SPI peripheral (HAL should do this, but let's be sure)
-    __HAL_SPI_ENABLE(&hspi1);
-    rtt_println("SPI1: Explicitly enabled, CR1 = 0x%04X", SPI1->CR1);
-    rtt_println("  CR1.SPE (should be 1): %d", (SPI1->CR1 & SPI_CR1_SPE) ? 1 : 0);
-
-    rtt_println("SPI1: Init complete");
+    // NOTE: Do NOT manually enable SPI - let HAL manage it during transactions
+    rtt_println("SPI1: Init complete (SPE will be managed by HAL during transactions)");
 }
 #endif
 

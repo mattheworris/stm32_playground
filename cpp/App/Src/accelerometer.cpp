@@ -17,66 +17,76 @@ Accelerometer::Accelerometer(SPI_HandleTypeDef* hspi, GPIO_TypeDef* cs_port, uin
 
 bool Accelerometer::init()
 {
-    DEBUG_PRINTF("Accel: Setting CS high");
+    DEBUG_PRINTF("Accel: Initializing LIS3DSH...");
+
     // Ensure CS is high (idle)
     chipSelectHigh();
     HAL_Delay(10);
 
-    // Verify SPI configuration
-    DEBUG_PRINTF("Accel: SPI Configuration:");
-    DEBUG_PRINTF("  CLKPolarity: %d (expect 2=SPI_POLARITY_HIGH)", hspi_->Init.CLKPolarity);
-    DEBUG_PRINTF("  CLKPhase: %d (expect 2=SPI_PHASE_2EDGE)", hspi_->Init.CLKPhase);
-    DEBUG_PRINTF("  BaudRate Prescaler: %d (expect 8)", hspi_->Init.BaudRatePrescaler);
-    DEBUG_PRINTF("  CS Pin State: %d (expect 1=HIGH)", HAL_GPIO_ReadPin(cs_port_, cs_pin_));
+    // CRITICAL: Soft reset first (matches Rust lis3dsh library)
+    DEBUG_PRINTF("Accel: Performing soft reset (CTRL_REG3=0x01)");
+    static constexpr uint8_t CTRL_REG3 = 0x23;
+    if (!writeRegister(CTRL_REG3, 0x01)) {
+        DEBUG_PRINTF("Accel: Soft reset failed!");
+        return false;
+    }
 
-    // Check GPIO configurations
-    DEBUG_PRINTF("Accel: GPIO Register Checks:");
-    DEBUG_PRINTF("  GPIOA MODER (PA5/6/7): 0x%08lX", GPIOA->MODER);
-    DEBUG_PRINTF("  GPIOA AFR[0] (PA5/6/7): 0x%08lX", GPIOA->AFR[0]);
-    DEBUG_PRINTF("  GPIOE MODER (PE3): 0x%08lX", GPIOE->MODER);
-    DEBUG_PRINTF("  GPIOE ODR (PE3 bit3): %d", (GPIOE->ODR >> 3) & 1);
+    // Wait 5ms for reset to complete (per Rust library)
+    HAL_Delay(5);
 
-    // Check SPI peripheral state
-    DEBUG_PRINTF("Accel: SPI1 State:");
-    DEBUG_PRINTF("  CR1: 0x%04X", SPI1->CR1);
-    DEBUG_PRINTF("  SR: 0x%04X", SPI1->SR);
-    DEBUG_PRINTF("  CR1.SPE (enabled): %d", (SPI1->CR1 & SPI_CR1_SPE) ? 1 : 0);
-
-    DEBUG_PRINTF("Accel: Reading WHO_AM_I register (0x0F)...");
-    // Verify WHO_AM_I register
+    // Now read WHO_AM_I to verify communication
+    DEBUG_PRINTF("Accel: Reading WHO_AM_I...");
     uint8_t who_am_i = 0;
     if (!readRegister(WHO_AM_I, &who_am_i)) {
-        DEBUG_PRINTF("Accel: WHO_AM_I read failed!\n");
+        DEBUG_PRINTF("Accel: WHO_AM_I read failed!");
         return false;
     }
 
-    DEBUG_PRINTF("Accel: WHO_AM_I = 0x%02X (expected 0x%02X)\n", who_am_i, WHO_AM_I_VALUE);
+    DEBUG_PRINTF("Accel: WHO_AM_I = 0x%02X (expected 0x%02X)", who_am_i, WHO_AM_I_VALUE);
     if (who_am_i != WHO_AM_I_VALUE) {
-        DEBUG_PRINTF("Accel: WHO_AM_I mismatch!\n");
+        DEBUG_PRINTF("Accel: WHO_AM_I mismatch!");
         return false;
     }
 
-    DEBUG_PRINTF("Accel: Configuring CTRL_REG4...\n");
-    // Configure CTRL_REG4: Enable all axes, 100 Hz ODR, ±2g range
-    // ODR = 100Hz (0b0110), Enable X,Y,Z (0b111)
-    // Register layout: [ODR3:ODR0][BDU][ZEN][YEN][XEN]
-    // 0b01100111 = 0x67
-    if (!writeRegister(CTRL_REG4, 0x67)) {
-        DEBUG_PRINTF("Accel: CTRL_REG4 write failed!\n");
+    // Configure CTRL_REG4: Enable XYZ at 100 Hz, ±2g
+    // ODR = 100Hz (0b0110), BDU=1, Enable X,Y,Z (0b111)
+    // 0b01101111 = 0x6F
+    DEBUG_PRINTF("Accel: Configuring CTRL_REG4=0x6F (with BDU=1)");
+    if (!writeRegister(CTRL_REG4, 0x6F)) {
+        DEBUG_PRINTF("Accel: CTRL_REG4 write failed!");
         return false;
     }
 
-    DEBUG_PRINTF("Accel: Configuring CTRL_REG5...\n");
-    // Configure CTRL_REG5: ±2g range (default, but set explicitly)
-    // FSCALE = 00 (±2g), Anti-aliasing bandwidth = 800Hz
-    // 0b00000000 = 0x00
-    if (!writeRegister(CTRL_REG5, 0x00)) {
-        DEBUG_PRINTF("Accel: CTRL_REG5 write failed!\n");
+    // Verify CTRL_REG4 was written correctly
+    uint8_t ctrl_reg4_readback = 0;
+    if (readRegister(CTRL_REG4, &ctrl_reg4_readback)) {
+        DEBUG_PRINTF("Accel: CTRL_REG4 readback = 0x%02X", ctrl_reg4_readback);
+    }
+
+    // Configure CTRL_REG3: Enable DRDY signal (matches Rust: 0xE8)
+    DEBUG_PRINTF("Accel: Configuring CTRL_REG3=0xE8");
+    if (!writeRegister(CTRL_REG3, 0xE8)) {
+        DEBUG_PRINTF("Accel: CTRL_REG3 write failed!");
         return false;
     }
 
-    DEBUG_PRINTF("Accel: Init complete, waiting for stabilization\n");
-    HAL_Delay(10);  // Allow sensor to stabilize
+    // Verify CTRL_REG3 was written correctly
+    uint8_t ctrl_reg3_readback = 0;
+    if (readRegister(CTRL_REG3, &ctrl_reg3_readback)) {
+        DEBUG_PRINTF("Accel: CTRL_REG3 readback = 0x%02X", ctrl_reg3_readback);
+    }
+
+    // Check CTRL_REG5 (just to see default state)
+    static constexpr uint8_t CTRL_REG5 = 0x24;
+    uint8_t ctrl_reg5_val = 0;
+    if (readRegister(CTRL_REG5, &ctrl_reg5_val)) {
+        DEBUG_PRINTF("Accel: CTRL_REG5 (default) = 0x%02X", ctrl_reg5_val);
+    }
+
+    // Wait a bit for sensor to stabilize
+    HAL_Delay(100);
+
+    DEBUG_PRINTF("Accel: Init complete!");
     return true;
 }
 
@@ -106,29 +116,18 @@ void Accelerometer::chipSelectHigh()
 
 bool Accelerometer::readRegister(uint8_t reg, uint8_t* data)
 {
-    DEBUG_PRINTF("  >>> readRegister ENTRY: reg=0x%02X", reg);
-
     uint8_t tx[2] = {static_cast<uint8_t>(reg | READ_BIT), 0x00};
-    uint8_t rx[2] = {0};
+    uint8_t rx[2] = {0, 0};
 
-    DEBUG_PRINTF("  SPI TX: 0x%02X 0x%02X", tx[0], tx[1]);
-
-    DEBUG_PRINTF("  About to set CS low (inline)");
     HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_RESET);
-    DEBUG_PRINTF("  CS is now low (inline)");
+    for (volatile int i = 0; i < 100; i++);  // CS setup delay
 
-    // Small delay for CS setup time
-    DEBUG_PRINTF("  Starting delay loop");
-    for (volatile int i = 0; i < 10; i++);
-    DEBUG_PRINTF("  Delay complete");
-
-    DEBUG_PRINTF("  About to call HAL_SPI_TransmitReceive");
     HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(hspi_, tx, rx, 2, 100);
-    DEBUG_PRINTF("  HAL_SPI_TransmitReceive returned status=%d", status);
 
-    chipSelectHigh();
+    HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
+    for (volatile int i = 0; i < 100; i++);  // CS hold delay
 
-    DEBUG_PRINTF("  SPI RX: 0x%02X 0x%02X (status=%d)", rx[0], rx[1], status);
+    DEBUG_PRINTF("  REG[0x%02X] = 0x%02X (status=%d)", reg, rx[1], status);
 
     if (status == HAL_OK) {
         *data = rx[1];
@@ -150,24 +149,41 @@ bool Accelerometer::writeRegister(uint8_t reg, uint8_t data)
 
 bool Accelerometer::readRawData(int16_t& x, int16_t& y, int16_t& z)
 {
-    // Read 6 bytes starting from OUT_X_L with auto-increment
-    // LIS3DSH stores data in little-endian format: L, H for each axis
-    // Must set bit 6 (multi-byte) for address auto-increment
-    uint8_t tx[7] = {static_cast<uint8_t>(OUT_X_L | READ_BIT | MULTI_BYTE_BIT), 0, 0, 0, 0, 0, 0};
-    uint8_t rx[7] = {0};
+    // CRITICAL: Rust library does TWO separate SPI transfers, not one!
+    // First transfer: send command byte
+    // Second transfer: read data bytes (NO multi-byte bit needed!)
 
-    chipSelectLow();
-    HAL_StatusTypeDef status = HAL_SPI_TransmitReceive(hspi_, tx, rx, 7, 100);
-    chipSelectHigh();
+    uint8_t data[6] = {0};
+
+    HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_RESET);
+    for (volatile int i = 0; i < 100; i++);  // CS setup
+
+    // Transfer 1: Send command (address with read bit, NO multi-byte bit)
+    uint8_t cmd = OUT_X_L | READ_BIT;  // 0x28 | 0x80 = 0xA8
+    HAL_StatusTypeDef status = HAL_SPI_Transmit(hspi_, &cmd, 1, 100);
+    if (status != HAL_OK) {
+        HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
+        DEBUG_PRINTF("  Command transmit failed: %d", status);
+        return false;
+    }
+
+    // Transfer 2: Read 6 data bytes
+    status = HAL_SPI_Receive(hspi_, data, 6, 100);
+
+    HAL_GPIO_WritePin(cs_port_, cs_pin_, GPIO_PIN_SET);
+    for (volatile int i = 0; i < 100; i++);  // CS hold
+
+    // DEBUG_PRINTF("  Raw read: status=%d, data=%02X %02X %02X %02X %02X %02X",
+    //              status, data[0], data[1], data[2], data[3], data[4], data[5]);
 
     if (status != HAL_OK) {
         return false;
     }
 
     // Combine low and high bytes (little-endian)
-    x = static_cast<int16_t>((rx[2] << 8) | rx[1]);
-    y = static_cast<int16_t>((rx[4] << 8) | rx[3]);
-    z = static_cast<int16_t>((rx[6] << 8) | rx[5]);
+    x = static_cast<int16_t>((data[1] << 8) | data[0]);
+    y = static_cast<int16_t>((data[3] << 8) | data[2]);
+    z = static_cast<int16_t>((data[5] << 8) | data[4]);
 
     return true;
 }

@@ -24,17 +24,18 @@ LedBrightness LevelAlgorithm::update(float accel_x, float accel_y)
     filtered_y_ = EMA_ALPHA * accel_y + (1.0f - EMA_ALPHA) * filtered_y_;
 
     // Calculate tilt angles (can be positive or negative)
-    // Accelerometer orientation: X points toward USB (top), Y points LEFT
-    float tilt_x = calculateTilt(filtered_x_, 1.0f);  // North/South axis
-    float tilt_y = calculateTilt(filtered_y_, 1.0f);  // West/East axis
+    // Accelerometer orientation CORRECTED: Y points toward USB (North), X points RIGHT (East)
+    // Swap X and Y to fix 90° rotation offset
+    float tilt_north_south = calculateTilt(filtered_y_, 1.0f);  // Y axis = North/South
+    float tilt_east_west = calculateTilt(filtered_x_, 1.0f);    // X axis = East/West
 
-    // Invert the logic: when a side tips UP, that LED stays bright
-    // This matches the Rust implementation exactly
+    // When a side tips UP (away from gravity), that LED should stay bright
+    // Positive tilt angle = that direction tips DOWN (toward gravity) = LED dims
     return LedBrightness{
-        .north = angleToBrightness(-tilt_x),  // Inverted
-        .east  = angleToBrightness(tilt_y),   // Inverted
-        .south = angleToBrightness(tilt_x),   // Inverted
-        .west  = angleToBrightness(-tilt_y)   // Inverted
+        .north = angleToBrightness(-tilt_north_south),  // Y axis, inverted (swap with south)
+        .east  = angleToBrightness(-tilt_east_west),    // X axis, inverted for correct L/R
+        .south = angleToBrightness(tilt_north_south),   // Y axis (swap with north)
+        .west  = angleToBrightness(tilt_east_west)      // X axis
     };
 }
 
@@ -49,8 +50,9 @@ uint8_t LevelAlgorithm::angleToBrightness(float angle) const
     // Negative angle = tilting toward this LED = stay bright
     // Positive angle = tilting away from this LED = dim it
 
-    // Deadband: within ±3° is considered level (full brightness)
-    if (angle <= 3.0f) {
+    // Deadband: within ±8° is considered level (full brightness)
+    static constexpr float DEADBAND = 8.0f;
+    if (angle <= DEADBAND) {
         return 255;
     }
 
@@ -59,7 +61,7 @@ uint8_t LevelAlgorithm::angleToBrightness(float angle) const
         return 0;
     }
 
-    // Linear fade from 3° to threshold
-    float brightness = 255.0f * (1.0f - (angle - 3.0f) / (MAX_TILT - 3.0f));
+    // Linear fade from 8° to threshold
+    float brightness = 255.0f * (1.0f - (angle - DEADBAND) / (MAX_TILT - DEADBAND));
     return static_cast<uint8_t>(brightness);
 }
