@@ -1,2 +1,5 @@
 /target
 Cargo.lock
+
+# CPP build artifacts
+/cpp/build/CMakeFiles/
