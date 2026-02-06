@@ -41,9 +41,7 @@ cpp/
         └── led_controller.cpp
 ```
 
-## Build System
-
-**CMake + ARM GCC Toolchain**
+## Build System: CMake + ARM GCC Toolchain
 
 ### Prerequisites
 
@@ -111,7 +109,7 @@ PWM control via TIM4:
 
 ## Size Comparison
 
-```
+```text
 Rust version:    7,752 bytes flash, 1,032 bytes RAM
 C++ version:     9,384 bytes flash, 2,076 bytes RAM
 ```
@@ -121,7 +119,7 @@ The C++ version is ~21% larger due to HAL overhead vs. Rust's zero-cost abstract
 ## Key Differences: Rust vs C++
 
 | Aspect | Rust | C++ |
-|--------|------|-----|
+| -------- | ------ | ----- |
 | **Memory Safety** | Compile-time guarantees | Manual management (RAII) |
 | **HAL Abstraction** | embedded-hal traits | Function pointers, callbacks |
 | **Dependencies** | Cargo ecosystem | Git submodules, manual integration |

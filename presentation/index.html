@@ -188,7 +188,7 @@
             <!-- SLIDE 6: Main Entry Point -->
             <section>
                 <h2>Main Entry Point: <code>no_std</code> Setup</h2>
-                <pre><code class="rust" data-trim data-line-numbers="1-5,19-30">
+                <pre><code class="rust" data-trim data-line-numbers="1-2|4-5|7-8|9-11|13-18|20-23|27-29">
 #![no_std]        // Don't link standard library
 #![no_main]       // We provide our own entry point
 
@@ -299,10 +299,10 @@ pub fn update(&mut self, accel_x: f32, accel_y: f32) -> LedBrightness {
     let tilt_y = self.calculate_tilt(self.filtered_y, 1.0);
 
     LedBrightness {
-        north: self.angle_to_brightness(-tilt_x),
-        south: self.angle_to_brightness(tilt_x),
-        east: self.angle_to_brightness(tilt_y),
-        west: self.angle_to_brightness(-tilt_y),
+        north: self.angle_to_brightness(tilt_x),
+        south: self.angle_to_brightness(-tilt_x),
+        east: self.angle_to_brightness(-tilt_y),
+        west: self.angle_to_brightness(tilt_y),
     }
 }
 
@@ -319,7 +319,7 @@ fn calculate_tilt(&self, axis_reading: f32, gravity: f32) -> f32 {
                     <p><strong>Why filtering matters:</strong> Raw accelerometer data is NOISY. If you directly control LEDs from raw readings, they'll flicker constantly. The EMA gives us smooth, stable output.</p>
                     <p><strong>Tilt calculation:</strong> We use atan2 to convert acceleration to angle. When the board is level, Z-axis reads 1g (gravity), X and Y read ~0g. As you tilt, gravity's projection onto X and Y increases. atan2(x_accel, z_accel) gives you the tilt angle.</p>
                     <p><strong>libm crate:</strong> In no_std, we don't have std::f32::atan2. The libm crate provides pure-Rust implementations of math functions. The compiler can inline and optimize these aggressively.</p>
-                    <p><strong>Coordinate system:</strong> Notice the sign inversions. If tilt_x is positive (USB side tipping up), the NORTH LED (which is on the USB side) should stay bright and the SOUTH LED should dim. Hence: north = brightness(-tilt_x).</p>
+                    <p><strong>Coordinate system:</strong> Notice the sign inversions. If tilt_x is positive (USB side tipping up), the NORTH LED (which is on the USB side) should dim and the SOUTH LED should stay bright. Hence: south = brightness(-tilt_x).</p>
                     <p><strong>Pattern matching would work here too:</strong> We could return a struct and pattern match on it. Rust gives you options.</p>
                 </aside>
             </section>
@@ -402,7 +402,7 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
                 <h2>The SPI Debugging Story: Rust vs C++</h2>
                 <div class="comparison">
                     <div>
-                        <h4 class="success">Rust: Worked First Try</h4>
+                        <h4 class="success">Rust: (Mostly) Worked First Try</h4>
                         <ul class="small">
                             <li>Used <code>lis3dsh</code> crate (correct protocol)</li>
                             <li>Type system prevented pin assignment errors</li>
@@ -418,7 +418,7 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
                             <li>Data froze—sensor wanted TWO transfers</li>
                             <li>Stack overflow from printf in tight loop</li>
                             <li>No type safety on register addresses</li>
-                            <li><strong>Hours of debugging with debugger and oscilloscope</strong></li>
+                            <li><strong>Hours of debugging with debugger</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -486,7 +486,7 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
                     <p><strong>In embedded:</strong> No heap means ownership is even simpler. Everything lives in 'static or on the stack. The compiler proves at compile time that you're not leaking resources or accessing freed memory.</p>
                     <p><strong>Traits for HAL:</strong> The embedded-hal crate defines traits like spi::Transfer, digital::OutputPin, delay::DelayMs. Any HAL implementing these traits is compatible with any driver using them. This is like C++ templates, but with better error messages and zero runtime cost.</p>
                     <p><strong>Type State Pattern:</strong> This is a game-changer. Imagine a GPIO pin has three states: Unconfigured, Input, Output. In C, you just have a pointer. In Rust, you have three different TYPES: Pin&lt;Unconfigured&gt;, Pin&lt;Input&gt;, Pin&lt;Output&gt;. The into_push_pull_output() method consumes Pin&lt;Unconfigured&gt; and returns Pin&lt;Output&gt;. Now the API that requires an output pin can ONLY accept Pin&lt;Output&gt;—the compiler enforces this.</p>
-                    <p><strong>Const Generics:</strong> This is new (stabilized in 2021). You can have generic parameters that are VALUES, not types. PwmChannel&lt;TIM4, 0&gt; vs PwmChannel&lt;TIM4, 1&gt; are DIFFERENT types. You can't pass one where the other is expected. This catches wiring mistakes at compile time.</p>
+                    <p><strong>Const Generics:</strong> You can have generic parameters that are VALUES, not types. PwmChannel&lt;TIM4, 0&gt; vs PwmChannel&lt;TIM4, 1&gt; are DIFFERENT types. You can't pass one where the other is expected. This catches wiring mistakes at compile time.</p>
                     <p><strong>For your team:</strong> These aren't academic features. They catch real bugs that would be runtime failures in C++.</p>
                 </aside>
             </section>
