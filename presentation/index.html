@@ -14,7 +14,7 @@
         .reveal pre code { max-height: 500px; padding: 20px; }
         .reveal .slides section { text-align: left; }
         .reveal .center { text-align: center; }
-        .reveal ul { margin-left: 0; }
+        .reveal ul, .reveal ol { margin-left: 0; padding-left: 1.2em; }
         .reveal .small { font-size: 0.7em; }
         .reveal .highlight { color: #e7ad52; font-weight: bold; }
         .reveal .success { color: #5cb85c; }
@@ -69,7 +69,6 @@
             <!-- SLIDE 3: Why Rust for Embedded? -->
             <section>
                 <h2>Why Rust for Embedded Systems?</h2>
-                <p class="small" style="font-style: italic;">Speaking to C/C++ embedded experts...</p>
                 <ul>
                     <li><strong>Memory safety without runtime cost</strong>
                         <ul class="small">
@@ -547,14 +546,14 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
                 <aside class="notes">
                     <h4>Closing (1 minute):</h4>
                     <p><strong>Your pitch:</strong></p>
-                    <p>"I'm not here to tell you to rewrite everything in Rust. Your C++ codebase works, and I can contribute to it. But for NEW development, especially safety-critical components, Rust offers compelling advantages:</p>
+                    <p>"I'm not here to tell you to rewrite everything in Rust. C++ works, and I can contribute to it. But for NEW development, especially safety-critical components, Rust offers compelling advantages:</p>
                     <ul>
                         <li>Entire categories of bugs caught at compile time</li>
                         <li>Easier to onboard new engineers (the compiler is a teacher)</li>
                         <li>Refactoring is safe (compiler finds all affected code)</li>
                         <li>Growing ecosystem of embedded crates</li>
                     </ul>
-                    <p>I bring expertise you don't have in-house. I can prototype in Rust, port to C++ if needed, or introduce Rust incrementally for new modules.</p>
+                    <p>I bring my Rust expertise. I can prototype in Rust, port to C++ if needed, or introduce Rust incrementally for new modules.</p>
                     <p>This project demonstrates I can work at the hardware level, understand signal processing, write clean architecture, AND communicate technical concepts effectively.</p>
                     <p>I'm ready to contribute to HighQ.aero's mission."</p>
                     <p><strong>Open for questions.</strong></p>
@@ -617,7 +616,7 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
         Reveal.initialize({
             hash: true,
             slideNumber: true,
-            showNotes: false,  // Set to true to see speaker notes on screen
+            showNotes: false,  // Speaker notes via speaker view (press 'S')
             plugins: [ RevealNotes, RevealHighlight ],
             transition: 'slide',
             backgroundTransition: 'fade',

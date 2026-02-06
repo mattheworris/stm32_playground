@@ -51,12 +51,12 @@ impl LevelDetector {
         let tilt_x = self.calculate_tilt(self.filtered_x, 1.0);  // North/South axis
         let tilt_y = self.calculate_tilt(self.filtered_y, 1.0);  // West/East axis
 
-        // Invert the logic: when a side tips UP, that LED stays bright
+        // Invert the logic: when a side tips UP, that LED dims
         LedBrightness {
-            north: self.angle_to_brightness(tilt_x),  // Inverted
+            north: self.angle_to_brightness(tilt_x),
             south: self.angle_to_brightness(-tilt_x),   // Inverted
             east: self.angle_to_brightness(-tilt_y),    // Inverted
-            west: self.angle_to_brightness(tilt_y),   // Inverted
+            west: self.angle_to_brightness(tilt_y),
         }
     }
 
