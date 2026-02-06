@@ -37,7 +37,7 @@
                 <aside class="notes">
                     <h4>Opening (30 seconds):</h4>
                     <p>Good morning/afternoon. I'm Matthew Orris, and today I'm going to share a project that demonstrates Rust's unique value proposition for embedded systems.</p>
-                    <p>This is a real embedded project: a digital level indicator that uses an accelerometer to detect tilt and provides visual feedback through LEDs. What makes this interesting isn't just what it does, but HOW it was built—and the stark difference between the Rust and C++ implementations.</p>
+                    <p>This is a real embedded project: a digital level indicator that uses an accelerometer to detect tilt and provides visual feedback through LEDs. What makes this interesting isn't just what it does, but HOW it was built: as a Rapid prototype built in 2 days with AI assistance, and the difference between the Rust and C++ implementations.</p>
                 </aside>
             </section>
 
@@ -59,10 +59,10 @@
 
                 <aside class="notes">
                     <h4>The Setup (1.5 minutes):</h4>
-                    <p><strong>Hardware:</strong> STM32F407VG is an ARM Cortex-M4F with hardware floating-point (FPU), running at 84 MHz. This is the Discovery board—you probably have these on your desks.</p>
+                    <p><strong>Hardware:</strong> STM32F407VG is an ARM Cortex-M4F with hardware floating-point (FPU), running at 84 MHz. This is the Discovery board.</p>
                     <p><strong>Sensor:</strong> LIS3DSH is a MEMS accelerometer that communicates over SPI Mode 3. It provides ±2g acceleration data as 16-bit signed integers.</p>
                     <p><strong>The Task:</strong> Read the accelerometer at 100 Hz, filter the signal, calculate tilt angles, and smoothly adjust LED brightness. When you tip the board, the LED on the HIGH side dims.</p>
-                    <p><strong>THE KEY POINT:</strong> The Rust version worked immediately—no runtime debugging. The C++ version had multiple issues: wrong SPI protocol, stack overflow, data not updating. This isn't because I'm better at Rust than C++. It's because Rust's type system and borrow checker caught entire categories of bugs at compile time.</p>
+                    <p><strong>THE KEY POINT:</strong> The Rust version worked almost immediately—very little runtime debugging. The C++ version had multiple issues: wrong SPI protocol, stack overflow, data not updating. This isn't because I'm better at Rust than C++. It's because Rust's type system and borrow checker caught entire categories of bugs at compile time.</p>
                 </aside>
             </section>
 
@@ -96,9 +96,9 @@
 
                 <aside class="notes">
                     <h4>The Value Proposition (2.5 minutes):</h4>
-                    <p><strong>Memory Safety:</strong> You know the pain of debugging a HardFault at 3am because of a null pointer or buffer overflow. Rust's ownership system makes these impossible. The borrow checker enforces that only one mutable reference OR multiple immutable references can exist at a time. No data races, no iterator invalidation.</p>
+                    <p><strong>Memory Safety:</strong> We all know the pain of debugging a HardFault at 3am because of a null pointer or buffer overflow. Rust's ownership system makes these impossible. The borrow checker enforces that only one mutable reference OR multiple immutable references can exist at a time. No data races, no iterator invalidation.</p>
                     <p><strong>Type-Safe Hardware:</strong> In C, register addresses are just numbers. In Rust, peripherals are types. You can't accidentally write to the wrong register. You can't use SPI before calling init() because the type system tracks initialization state.</p>
-                    <p><strong>Zero-Cost:</strong> This is crucial—Rust's abstractions compile away. A generic function over a trait becomes a direct function call, no vtables. The generated assembly is identical to hand-written C.</p>
+                    <p><strong>Zero-Cost:</strong> Rust's abstractions compile away. A generic function over a trait becomes a direct function call, no virtual tables. The generated assembly is identical to hand-written C.</p>
                     <p><strong>Refactoring:</strong> When you change an API in a 100k line codebase, the compiler finds EVERY call site that needs updating. You're not hunting through grep results hoping you found them all.</p>
                     <p><strong>Key point for your team:</strong> You already write careful C++ with code reviews and static analysis. Rust moves those checks into the compiler, catching bugs before they reach review.</p>
                 </aside>
@@ -141,7 +141,7 @@
                         <li><strong>HAL (Hardware Abstraction Layer):</strong> High-level API. "Give me SPI with these pins at this speed." Hides register details.</li>
                         <li><strong>embedded-hal traits:</strong> Generic interfaces. A driver written against embedded-hal::spi::Transfer works on ANY microcontroller with a HAL that implements that trait. Write once, run on STM32, nRF52, ESP32, etc.</li>
                     </ul>
-                    <p><strong>Tooling advantage:</strong> cargo is phenomenal. One command to build, one command to test, built-in documentation. probe-rs replaces OpenOCD—it just works. defmt is genius: instead of sprintf() on the target (slow, uses RAM), it sends format indices to your computer which does the string formatting. Fast logging with zero impact.</p>
+                    <p><strong>Tooling advantage:</strong> cargo is amazing. One command to build, one command to test, built-in documentation. probe-rs replaces OpenOCD—it just works. defmt is genius: instead of sprintf() on the target (slow, more RAM), it sends format indices to your computer which does the string formatting. Fast logging with zero impact.</p>
                     <p><strong>For your team:</strong> The tooling is a huge selling point. New engineers are productive in days, not weeks.</p>
                 </aside>
             </section>
@@ -223,9 +223,9 @@ fn main() -> ! {  // Never returns (! = "never" type)
                 <aside class="notes">
                     <h4>Main Entry Deep-Dive (2 minutes):</h4>
                     <p><strong>#![no_std] and #![no_main]:</strong> These attributes tell the compiler we're in a bare-metal environment. No standard library, no main() provided by the runtime. We control everything.</p>
-                    <p><strong>#[entry] macro:</strong> From cortex-m-rt crate. This generates the vector table, initializes RAM, calls our function. It's doing the work of crt0.S in C.</p>
+                    <p><strong>#[entry] macro:</strong> From cortex-m-rt crate. This generates the vector table, initializes RAM, calls our function.</p>
                     <p><strong>fn main() -> ! (never type):</strong> The ! means this function never returns. Makes sense—we're the only code running on the MCU. We loop forever or reset.</p>
-                    <p><strong>Peripherals::take():</strong> This is brilliant. Each peripheral (SPI1, TIM4, GPIOA) is a singleton. take() returns Option—Some on first call, None after. This means you CAN'T accidentally create two mutable references to the same hardware. The type system prevents hardware aliasing bugs.</p>
+                    <p><strong>Peripherals::take():</strong> This is clever. Each peripheral (SPI1, TIM4, GPIOA) is a singleton. take() returns Option—Some on first call, None after. This means you CAN'T accidentally create two mutable references to the same hardware. The type system prevents hardware aliasing bugs.</p>
                     <p><strong>Clock configuration:</strong> We're using an 8 MHz external crystal (HSE), running it through the PLL to get 84 MHz system clock. pclk1 is the APB1 peripheral clock (42 MHz). These are builder patterns—very ergonomic.</p>
                     <p><strong>GPIO split():</strong> This "splits" GPIOA into individual pins. Once split, you can't access GPIOA as a whole anymore. Each pin is now an independent owned value. This prevents you from configuring PA5 as both an output and SPI_SCK at the same time—the compiler won't let you.</p>
                 </aside>
@@ -428,7 +428,7 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
                 <aside class="notes">
                     <h4>The Debugging Story (3 minutes):</h4>
                     <p><strong>This is your differentiator.</strong> This is why Rust matters.</p>
-                    <p><strong>Rust side:</strong> I wrote the code, compiled it, flashed it, and it WORKED. The LEDs responded to tilt immediately. No debugger, no logic analyzer, no printf debugging. Why? Because:</p>
+                    <p><strong>Rust side:</strong> I wrote the code, compiled it, flashed it, and it mostly WORKED. The LEDs responded to tilt immediately. No debugger, no logic analyzer, no printf debugging. Why? Because:</p>
                     <ul>
                         <li>The lis3dsh crate ALREADY implements the correct SPI protocol. I didn't have to read the 80-page datasheet.</li>
                         <li>The type system caught all the "dumb mistakes": wrong pin, forgot to enable clock, used peripheral before init.</li>
@@ -481,7 +481,7 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
 
                 <aside class="notes">
                     <h4>Advanced Concepts (3 minutes):</h4>
-                    <p><strong>Ownership:</strong> Every value has exactly one owner. When the owner goes out of scope, the value is "dropped" (destructor runs). You can borrow (&T) or mutably borrow (&mut T), but the borrow checker enforces: either one &mut T OR many &T, never both. This makes data races impossible at compile time.</p>
+                    <p><strong>Ownership:</strong> Every value has exactly one owner. When the owner goes out of scope, the value is "dropped" (destructor runs). You can borrow (&T) or mutably borrow (&mut T), but the borrow checker enforces: either one [mutable reference] &mut T OR many [immutable references] &T, never both. This makes data races impossible at compile time.</p>
                     <p><strong>In embedded:</strong> No heap means ownership is even simpler. Everything lives in 'static or on the stack. The compiler proves at compile time that you're not leaking resources or accessing freed memory.</p>
                     <p><strong>Traits for HAL:</strong> The embedded-hal crate defines traits like spi::Transfer, digital::OutputPin, delay::DelayMs. Any HAL implementing these traits is compatible with any driver using them. This is like C++ templates, but with better error messages and zero runtime cost.</p>
                     <p><strong>Type State Pattern:</strong> This is a game-changer. Imagine a GPIO pin has three states: Unconfigured, Input, Output. In C, you just have a pointer. In Rust, you have three different TYPES: Pin&lt;Unconfigured&gt;, Pin&lt;Input&gt;, Pin&lt;Output&gt;. The into_push_pull_output() method consumes Pin&lt;Unconfigured&gt; and returns Pin&lt;Output&gt;. Now the API that requires an output pin can ONLY accept Pin&lt;Output&gt;—the compiler enforces this.</p>
@@ -520,7 +520,7 @@ pub fn set_brightness(&mut self, west: u8, north: u8,
                     <ul>
                         <li>Using existing crates is a superpower. Don't reinvent protocols.</li>
                         <li>Signal processing matters. Raw sensors are noisy.</li>
-                        <li>Rust's compile times are longer than C, but you run the compiler LESS because it catches bugs earlier.</li>
+                        <li>Rust's compile times can be longer than C, but you run the compiler LESS because it catches bugs earlier.</li>
                         <li>The type system IS the documentation. When you see a function signature, you understand constraints without reading docs.</li>
                     </ul>
                 </aside>
